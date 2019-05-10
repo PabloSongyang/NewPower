@@ -57,6 +57,7 @@ public class AndroidStatusBar
 
     private static void applyUIStates()
     {
+#if UNITY_ANDROID
         if (Application.platform == RuntimePlatform.Android)
         {
             int newFlagsValue = 0;
@@ -97,14 +98,17 @@ public class AndroidStatusBar
             setSystemUiVisibility(newSystemUiVisibilityValue);
 
         }
+#endif
     }
 
     private static void applyUIColors()
     {
+        #if UNITY_ANDROID
         if (Application.platform == RuntimePlatform.Android)
         {
             runOnAndroidUiThread(applyUIColorsAndroidInThread);
         }
+#endif
     }
 
 #if UNITY_ANDROID
